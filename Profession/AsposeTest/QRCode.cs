@@ -16,6 +16,33 @@ namespace AsposeTest
             SkiaQR();
         }
 
+        static void skiaimg()
+        {
+            //using SkiaSharp;
+            //using System.IO;
+
+            // open a stream from a file
+            Stream fileStream = File.OpenRead("MyImage.png");
+
+            // decode the bitmap from the stream
+            using var bitmap = SKBitmap.Decode(fileStream);
+
+            // create a surface with the same dimensions as the bitmap
+            var surface = SKSurface.Create(bitmap.Info);
+
+            // get the canvas from the surface
+            var canvas = surface.Canvas;
+
+            // clear the canvas / fill with white
+            canvas.DrawColor(SKColors.White);
+
+            // draw the bitmap on the canvas
+            canvas.DrawBitmap(bitmap, SKRect.Create(bitmap.Width, bitmap.Height));
+
+            // get the image from the surface
+            var image = surface.Snapshot();
+        }
+
         static void qrcoder()
         {
             string dataToEncode = "Hello, QRCoder QR Code!";
