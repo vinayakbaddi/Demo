@@ -41,6 +41,80 @@ namespace AsposeTest
 
             // get the image from the surface
             var image = surface.Snapshot();
+
+
+            /////////////
+            ///// create an image info with the desired dimensions and color type
+            var imageInfo = new SKImageInfo(width: 800, height: 600, colorType: SKColorType.Rgba8888, alphaType: SKAlphaType.Premul);
+
+            // create a surface with the image info
+            var surface = SKSurface.Create(imageInfo);
+
+            // get the canvas from the surface
+            var canvas = surface.Canvas;
+
+            // draw something on the canvas
+            canvas.DrawCircle(400, 300, 200, new SKPaint { Color = SKColors.Red });
+
+            // get the image from the surface
+            var image = surface.Snapshot();
+
+            // encode the image as PNG
+            var data = image.Encode(SKEncodedImageFormat.Png, 100);
+
+            // get the stream from the data
+            var stream = data.AsStream();
+
+            ////////////
+            ///
+            // create an image info with the desired dimensions and color type
+            var imageInfo = new SKImageInfo(width: 800, height: 600, colorType: SKColorType.Rgba8888, alphaType: SKAlphaType.Premul);
+
+            // create a surface with the image info
+            var surface = SKSurface.Create(imageInfo);
+
+            // get the canvas from the surface
+            var canvas = surface.Canvas;
+
+            // draw something on the canvas
+            canvas.DrawCircle(400, 300, 200, new SKPaint { Color = SKColors.Red });
+
+            // get the image from the surface
+            var image = surface.Snapshot();
+
+            // create a new size
+            var newSize = new SKSizeI(width: 400, height: 300);
+
+            // resize the image to the new size and get a new image object
+            var resizedImage = image.Resize(newSize, SKFilterQuality.High);
+
+            //////////
+            ///
+            using SkiaSharp;
+
+            // create an image info with the desired dimensions and color type
+            var imageInfo = new SKImageInfo(width: 800, height: 600, colorType: SKColorType.Rgba8888, alphaType: SKAlphaType.Premul);
+
+            // create a surface with the image info
+            var surface = SKSurface.Create(imageInfo);
+
+            // get the canvas from the surface
+            var canvas = surface.Canvas;
+
+            // draw something on the canvas
+            canvas.DrawCircle(400, 300, 200, new SKPaint { Color = SKColors.Red });
+
+            // get the image from the surface
+            var image = surface.Snapshot();
+
+            // create a new image info with a different size
+            var resizedImageInfo = new SKImageInfo(width: 400, height: 300, colorType: SKColorType.Rgba8888, alphaType: SKAlphaType.Premul);
+
+            // create a new bitmap with the resized image info
+            var resizedBitmap = new SKBitmap(resizedImageInfo);
+
+            // resize the image to the new bitmap
+            image.Resize(resizedBitmap, SKFilterQuality.High);
         }
 
         static void qrcoder()
