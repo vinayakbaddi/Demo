@@ -129,6 +129,53 @@ namespace AsposeTest
 
             // save the resized bitmap to a file
             resizedBitmap.Save("output.png", SKEncodedImageFormat.Png, 100);
+
+
+
+            ////
+            var originalImageInfo = new SKImageInfo(width: 800, height: 600, colorType: SKColorType.Rgba8888, alphaType: SKAlphaType.Premul);
+
+            // create a bitmap with the original image info
+            var originalBitmap = new SKBitmap(originalImageInfo);
+
+            // load an image from a file into the bitmap
+            originalBitmap.Load("input.png");
+
+            // create a deep copy of the original bitmap with the same image info
+            var copiedBitmap = originalBitmap.Copy(originalImageInfo);
+
+            // scale the pixels of the copied bitmap using high quality filter
+            copiedBitmap.ScalePixels(SKFilterQuality.High);
+
+            // save the copied bitmap to a file
+            copiedBitmap.Save("output.png", SKEncodedImageFormat.Png, 100);
+
+
+            //
+            using SkiaSharp;
+
+            // create an image info with the original dimensions and color type
+            var originalImageInfo = new SKImageInfo(width: 800, height: 600, colorType: SKColorType.Rgba8888, alphaType: SKAlphaType.Premul);
+
+            // create a bitmap with the original image info
+            var originalBitmap = new SKBitmap(originalImageInfo);
+
+            // load an image from a file into the bitmap
+            originalBitmap.Load("input.png");
+
+            // create an image info with the desired dimensions and color type
+            var resizedImageInfo = new SKImageInfo(width: 500, height: 500, colorType: SKColorType.Rgba8888, alphaType: SKAlphaType.Premul);
+
+            // create a bitmap with the resized image info
+            var resizedBitmap = new SKBitmap(resizedImageInfo);
+
+            // scale the pixels of the original bitmap into the resized bitmap using high quality filter
+            originalBitmap.ScalePixels(resizedBitmap, SKFilterQuality.High);
+
+            // save the resized bitmap to a file
+            resizedBitmap.Save("output.png", SKEncodedImageFormat.Png, 100);
+
+
         }
 
         static MainSkia()
