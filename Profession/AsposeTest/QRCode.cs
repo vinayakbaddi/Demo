@@ -115,6 +115,19 @@ namespace AsposeTest
 
             // resize the image to the new bitmap
             image.Resize(resizedBitmap, SKFilterQuality.High);
+
+
+            // create an image info with the desired dimensions and color type
+            var resizedImageInfo = new SKImageInfo(width: 400, height: 300, colorType: SKColorType.Rgba8888, alphaType: SKAlphaType.Premul);
+
+            // create a bitmap with the resized image info
+            var resizedBitmap = new SKBitmap(resizedImageInfo);
+
+            // scale the pixels of the original bitmap into the resized bitmap using high quality filter
+            originalBitmap.ScalePixels(resizedBitmap, SKFilterQuality.High);
+
+            // save the resized bitmap to a file
+            resizedBitmap.Save("output.png", SKEncodedImageFormat.Png, 100);
         }
 
         static void qrcoder()
