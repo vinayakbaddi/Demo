@@ -35,3 +35,53 @@ namespace Profession
         }
     }
 }
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string domainName = "yourdomain.com"; // Replace with your actual domain name
+        string userName = "yourusername"; // Replace with the username to check
+
+        bool isValid = IsUserValid(domainName, userName);
+
+        if (isValid)
+        {
+            Console.WriteLine("User is valid.");
+        }
+        else
+        {
+            Console.WriteLine("User is not valid.");
+        }
+    }
+
+    static bool IsUserValid(string domainName, string userName)
+    {
+        try
+        {
+            using (DirectoryEntry entry = new DirectoryEntry($"LDAP://{domainName}"))
+            {
+                using (DirectorySearcher searcher = new DirectorySearcher(entry))
+                {
+                    searcher.Filter = $"(&(objectCategory=user)(sAMAccountName={userName}))";
+                    SearchResult result = searcher.FindOne();
+
+                    if (result != null)
+                    {
+                        // Additional checks can be performed here to validate GSMA account details
+                        // For example, you might want to check certain attributes or group membership.
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("An error occurred: " + ex.Message);
+            return false;
+        }
+    }
