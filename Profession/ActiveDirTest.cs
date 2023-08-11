@@ -59,23 +59,19 @@ class Program
     {
         try
         {
-            using (DirectoryEntry entry = new DirectoryEntry($"LDAP://{domainName}"))
+            using (PrincipalContext context = new PrincipalContext(ContextType.Domain, domainName))
             {
-                using (DirectorySearcher searcher = new DirectorySearcher(entry))
-                {
-                    searcher.Filter = $"(&(objectCategory=user)(sAMAccountName={userName}))";
-                    SearchResult result = searcher.FindOne();
+                UserPrincipal user = UserPrincipal.FindByIdentity(context, IdentityType.SamAccountName, userName);
 
-                    if (result != null)
-                    {
-                        // Additional checks can be performed here to validate GSMA account details
-                        // For example, you might want to check certain attributes or group membership.
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                if (user != null)
+                {
+                    // Additional checks can be performed here to validate GSMA account details
+                    // For example, you might want to check certain attributes or group membership.
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
         }
