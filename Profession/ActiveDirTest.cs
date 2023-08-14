@@ -81,3 +81,24 @@ class Program
             return false;
         }
     }
+    static bool IsGMSAValid(string gmsaName)
+    {
+        using (PrincipalContext context = new PrincipalContext(ContextType.Domain))
+        {
+            // Search for the GMSA by its SAMAccountName (Account Name)
+            using (ComputerPrincipal gmsa = ComputerPrincipal.FindByIdentity(context, IdentityType.SamAccountName, gmsaName))
+            {
+                if (gmsa != null)
+                {
+                    // Check if the found principal is a GMSA
+                    if (gmsa.ServicePrincipalNames != null && gmsa.ServicePrincipalNames.Contains("GMSA"))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+}
