@@ -6,7 +6,7 @@ namespace Profession
     {
         static void Main(string[] args)
         {
-            
+            XorDecrypt.run();
             Console.WriteLine("Hello World!");
         }
     }
