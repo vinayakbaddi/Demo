@@ -1,0 +1,16 @@
+﻿[InternetShortcut]
+URL=file:///C:/Program%20Files/WinMerge/WinMergeU.exe
+IconFile=C:\Program Files\WinMerge\WinMergeU.exe
+IconIndex=0
+HotKey=0
+IDList=
+[InternetShortcut]
+URL=file:///C:/Path/To/First/File.txt
+IconIndex=0
+HotKey=0
+IDList=
+[InternetShortcut]
+URL=file:///C:/Path/To/Second/File.txt
+IconIndex=0
+HotKey=0
+IDList=
