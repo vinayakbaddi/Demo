@@ -12,6 +12,9 @@
 
             await TestBackgroundMethod(i);
 
+            if (i == 5)
+                throw new InvalidOperationException();
+
             Console.WriteLine("Ended Task " + i);
 
         }
@@ -21,6 +24,8 @@
             Console.WriteLine("Started TestBackgroundMethod " + i);
 
             await Task.Delay(2000);
+            if (i == 7)
+                throw new InvalidOperationException();
 
             Console.WriteLine("Ended TestBackgroundMethod " + i);
 

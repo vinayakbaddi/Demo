@@ -11,7 +11,7 @@ namespace SpikeHangfire.DB
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Set up your connection string to the database file here
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MyDatabase.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\TestDB;AttachDbFilename=|DataDirectory|\TestDB.mdf;Integrated Security=True";
 
             optionsBuilder.UseSqlServer(connectionString);
         }
