@@ -19,6 +19,8 @@
 
         }
 
+
+
         public async Task TestBackgroundMethod(int i)
         {
             Console.WriteLine("Started TestBackgroundMethod " + i);
@@ -29,6 +31,23 @@
 
             Console.WriteLine("Ended TestBackgroundMethod " + i);
 
+        }
+
+        public async Task MemoryIntensive(int v=1)
+        {
+            // Adjust the values and loop iterations as needed to increase the CPU load
+            int iterations = 100000000;
+            double result = 0;
+            Console.WriteLine("MemoryIntensive Started...." + v);
+
+            for (int i = 0; i < iterations; i++)
+            {
+                result += Math.Sqrt(i); // Perform some mathematical operation
+            }
+            if (v < 100)
+                await MemoryIntensive(++v);
+
+            Console.WriteLine("MemoryIntensive completed");
         }
     }
 }
