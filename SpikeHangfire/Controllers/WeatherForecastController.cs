@@ -41,7 +41,7 @@ namespace SpikeHangfire.Controllers
                 Console.WriteLine("Job called " + i);
             }
             BackgroundJob.Enqueue(() => new BackgroundTest().MemoryIntensive(1));
-
+            
             return Ok();
         }
 

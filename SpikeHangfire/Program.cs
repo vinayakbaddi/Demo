@@ -10,6 +10,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddHangfire(x => x.UseSqlServerStorage(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|Data\TestDB.mdf;Integrated Security=True"));
+//Use this below
+//builder.Services.AddHangfire(x => x.UseSqlServerStorage(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=testdb;Integrated Security=True"));
+
+//builder.Services.AddHangfire()
+
 builder.Services.AddHangfireServer();
 
 var app = builder.Build();
