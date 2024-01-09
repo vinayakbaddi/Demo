@@ -38,8 +38,11 @@ namespace SpikeHangfire.Controllers
             for (int i = 0; i < 10; i++)
             {
                 BackgroundJob.Enqueue(() => new BackgroundTest().Task1(i));
+
                 Console.WriteLine("Job called " + i);
             }
+            RecurringJob.AddOrUpdate("Recur", () => new BackgroundTest().Recur(), Cron.Minutely);
+
             BackgroundJob.Enqueue(() => new BackgroundTest().MemoryIntensive(1));
             
             return Ok();

@@ -49,5 +49,11 @@
 
             Console.WriteLine("MemoryIntensive completed");
         }
+
+        public string Recur()
+        {
+            Console.WriteLine("Running");
+            return "done";
+        }
     }
 }

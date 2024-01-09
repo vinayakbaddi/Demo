@@ -1,4 +1,6 @@
 using Hangfire;
+using Microsoft.EntityFrameworkCore;
+using SpikeHangfire.DB;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,13 +11,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddHangfire(x => x.UseSqlServerStorage(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|Data\TestDB.mdf;Integrated Security=True"));
+//builder.Services.AddHangfire(x => x.UseSqlServerStorage(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|Data\TestDB.mdf;Integrated Security=True"));
 //Use this below
 //builder.Services.AddHangfire(x => x.UseSqlServerStorage(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=testdb;Integrated Security=True"));
 
 //builder.Services.AddHangfire()
 
-builder.Services.AddHangfireServer();
+//builder.Services.AddHangfireServer();
+
+builder.Services.AddDbContext<HangFireDBContext>(opt=>
+opt.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=Data\\TestDB.mdf;Integrated Security=True")
+);
 
 var app = builder.Build();
 
