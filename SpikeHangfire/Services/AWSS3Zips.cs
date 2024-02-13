@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Routing;
+using System.IO.Compression;
 
 namespace SpikeHangfire.Services
 {
@@ -357,5 +358,68 @@ namespace YourNamespace.Tests
                 }
             }
         }
+    }
+}
+
+
+//////////////Specific files and zip them
+///
+using Amazon.S3;
+using Amazon.S3.Model;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.IO.Compression;
+using System.Linq;
+using System.Threading.Tasks;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        string bucketName = "your-bucket-name";
+        List<string> keys = new List<string>
+        {
+            "path/to/file1.txt",
+            "path/to/file2.txt",
+            // Add more file paths as needed
+        };
+
+        using (var client = new AmazonS3Client(Amazon.RegionEndpoint.USWest2)) // Specify the appropriate region
+        {
+            using (MemoryStream zipStream = new MemoryStream())
+            {
+                using (ZipArchive archive = new ZipArchive(zipStream, ZipArchiveMode.Create, true))
+                {
+                    foreach (string key in keys)
+                    {
+                        var getObjectRequest = new GetObjectRequest
+                        {
+                            BucketName = bucketName,
+                            Key = key
+                        };
+
+                        using (var response = await client.GetObjectAsync(getObjectRequest))
+                        using (var fileStream = response.ResponseStream)
+                        {
+                            var entry = archive.CreateEntry(Path.GetFileName(key));
+                            using (var entryStream = entry.Open())
+                            {
+                                await fileStream.CopyToAsync(entryStream);
+                            }
+                        }
+                    }
+                }
+
+                // Save the zip file
+                using (FileStream fileStream = new FileStream("downloaded-files.zip", FileMode.Create))
+                {
+                    zipStream.Seek(0, SeekOrigin.Begin);
+                    zipStream.CopyTo(fileStream);
+                }
+            }
+        }
+
+        Console.WriteLine("Files downloaded and zipped successfully.");
     }
 }
