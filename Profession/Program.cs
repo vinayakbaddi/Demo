@@ -7,7 +7,9 @@ namespace Profession
         static void Main(string[] args)
         {
             //XorDecrypt.run();
-            AsposeTest.BarcodeTest.run();
+            //AsposeTest.BarcodeTest.run();
+            JsonManipulation.ex();
+
             Console.WriteLine("Hello World!");
         }
     }
