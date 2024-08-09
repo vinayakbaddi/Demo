@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="Aspose.BarCode" Version="23.7.0" />
-    <PackageReference Include="Skiasharp" Version="2.88.3" />
+    <PackageReference Include="Skiasharp" Version="2.88.8" />
     <PackageReference Include="ZXing" Version="2.1.1" />
     <PackageReference Include="ZXing.Net" Version="0.16.9" />
     <PackageReference Include="ZXing.Net.Bindings.SkiaSharp" Version="0.16.13" />

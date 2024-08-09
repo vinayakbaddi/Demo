@@ -1,0 +1,21 @@
+[
+  {
+    "WorkflowName": "SimpleWorkflow",
+    "Rules": [
+      {
+        "RuleName": "PrintMessageRule",
+        "SuccessEvent": "PrintMessage",
+        "Actions": {
+          "OnSuccess": [
+            {
+              "Name": "PrintMessage",
+              "Context": {
+                "message": "Hello, this is a custom action message!"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

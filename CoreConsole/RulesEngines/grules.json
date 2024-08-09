@@ -1,0 +1,15 @@
+{
+  "WorkflowName": "DiscountCalculation",
+  "Rules": [
+    {
+      "RuleName": "Discount10",
+      "Expression": "input.price > 100",
+      "SuccessAction": "ApplyDiscount10"
+    },
+    {
+      "RuleName": "Discount20",
+      "Expression": "input.price > 200",
+      "SuccessAction": "ApplyDiscount20"
+    }
+  ]
+}
