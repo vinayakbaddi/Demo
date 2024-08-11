@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<answerset>
+  <section name="sec1">
+    <header>
+      <table>
+        <th>
+          <c>Sec Header value 1</c>
+          <c>Sec Header value 2</c>
+
+        </th>
+        <tr>
+          <c>Column value 1</c>
+          <c>Column value 2</c>
+
+        </tr>
+      </table>
+    </header>
+    <body>
+      <table>
+        <th>
+          <c>Header value 1</c>
+          <c>Header value 2</c>
+
+        </th>
+        <tr>
+          <c>Column value 1</c>
+          <c>Column value 2</c>
+
+        </tr>
+      </table>
+    </body>
+    <footer>
+      <table>
+        <th>
+          <c>Footer value 1</c>
+          <c>Footer value 2</c>
+
+        </th>
+        <tr>
+          <c>Column value 1</c>
+          <c>Column value 2</c>
+
+        </tr>
+      </table>
+      
+    </footer>
+  </section>
+  <cell name="cell1"></cell>
+</answerset>
