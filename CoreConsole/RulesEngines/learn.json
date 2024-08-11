@@ -1,0 +1,32 @@
+[
+  {
+    "WorkflowName": "Discount",
+    "Rules": [
+      {
+        "RuleName": "GiveDiscount10",
+        "Expression": "input1.country == \"india\" && input1.loyaltyFactor <= 2 && input1.totalPurchasesToDate >= 5000",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "There is error",
+        "Actions": {
+          //"OnSuccess": {
+          //  "Name": "PrintMessage",
+          //  "Context": {
+          //    "message": "Hello, this is a custom action message!"
+          //  }
+          //},
+          "OnSuccess": {
+            "Name": "PrintMessage",
+            "Context": {
+              "message": "Hello, this is a Success action message!"
+            }
+          }
+
+        }
+      },
+      {
+        "RuleName": "GiveDiscount20",
+        "Expression": "input1.country == \"india\" && input1.loyaltyFactor == 3 && input1.totalPurchasesToDate >= 10000"
+      }
+    ]
+  }
+]

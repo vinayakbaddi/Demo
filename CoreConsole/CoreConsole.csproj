@@ -12,6 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="RulesEngines\learn.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="RulesEngines\micro.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
