@@ -8,12 +8,12 @@
         "SuccessEvent": "Success",
         "ErrorMessage": "There is error",
         "Actions": {
-          //"OnSuccess": {
-          //  "Name": "PrintMessage",
-          //  "Context": {
-          //    "message": "Hello, this is a custom action message!"
-          //  }
-          //},
+          "OnFailure": {
+            "Name": "PrintMessage",
+            "Context": {
+              "message": "Hello, this is a Failure Message! Discount10"
+            }
+          },
           "OnSuccess": {
             "Name": "PrintMessage",
             "Context": {
@@ -25,7 +25,21 @@
       },
       {
         "RuleName": "GiveDiscount20",
-        "Expression": "input1.country == \"india\" && input1.loyaltyFactor == 3 && input1.totalPurchasesToDate >= 10000"
+        "Expression": "input1.country == \"india\" && input1.loyaltyFactor == 3 && input1.totalPurchasesToDate >= 10000",
+        "Actions": {
+          "OnFailure": {
+            "Name": "PrintMessage",
+            "Context": {
+              "message": "Hello, this is a Failure Message! 20"
+            }
+          },
+          "OnSuccess": {
+            "Name": "PrintMessage",
+            "Context": {
+              "message": "Hello, this is a Success action message! 20"
+            }
+          }
+        }
       }
     ]
   }
