@@ -4,7 +4,8 @@ using Profession.RulesEngines;
 
 Console.WriteLine("Hello, World!");
 
-TestRules.run();
+//TestRules.run();
 //RunExample.ex();
 //RunProgram.Run();
+RulesWiki.run();
 Console.Read();

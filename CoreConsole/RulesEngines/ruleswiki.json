@@ -1,0 +1,28 @@
+[
+  {
+    "WorkflowName": "Discount",
+    "Rules": [
+      {
+        "RuleName": "GiveDiscount10",
+        "Expression": "Utils.CheckContains(input1.country, \"india,usa,canada,France\") == true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "There is error"
+        //"Actions": {
+        //  "OnFailure": {
+        //    "Name": "PrintMessage",
+        //    "Context": {
+        //      "message": "Hello, this is a Failure Message! Discount10"
+        //    }
+        //  },
+        //  "OnSuccess": {
+        //    "Name": "PrintMessage",
+        //    "Context": {
+        //      "message": "Hello, this is a Success action message!"
+        //    }
+        //  }
+
+        //}
+      }
+    ]
+  }
+]
