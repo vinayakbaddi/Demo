@@ -7,21 +7,12 @@
         "Expression": "Utils.CheckContains(input1.country, \"india,usa,canada,France\") == true",
         "SuccessEvent": "Success",
         "ErrorMessage": "There is error"
-        //"Actions": {
-        //  "OnFailure": {
-        //    "Name": "PrintMessage",
-        //    "Context": {
-        //      "message": "Hello, this is a Failure Message! Discount10"
-        //    }
-        //  },
-        //  "OnSuccess": {
-        //    "Name": "PrintMessage",
-        //    "Context": {
-        //      "message": "Hello, this is a Success action message!"
-        //    }
-        //  }
-
-        //}
+      },
+      {
+        "RuleName": "Drop",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
       }
     ]
   }

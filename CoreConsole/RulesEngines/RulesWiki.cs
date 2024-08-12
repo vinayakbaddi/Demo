@@ -54,5 +54,22 @@ namespace CoreConsole.RulesEngines
             var list = valList.Split(',').ToList();
             return list.Contains(check);
         }
+
+        public static bool Drop(string cellMajor, string dropList,string action)
+        {
+            if (String.IsNullOrEmpty(cellMajor) || String.IsNullOrEmpty(dropList))
+                return false;
+
+            var list = dropList.Split(',').ToList();
+            if (cellMajor.Equals("cellMajor") && list.Count > 0)
+            {
+                foreach (var item in list)
+                    Console.WriteLine($"Action {item} {action}");
+
+                return true;
+            }
+
+            return false;
+        }
     }
 }
