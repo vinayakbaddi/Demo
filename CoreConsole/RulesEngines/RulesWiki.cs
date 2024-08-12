@@ -3,6 +3,7 @@ using RulesEngine;
 using RulesEngine.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,11 +36,19 @@ namespace CoreConsole.RulesEngines
             // Execute rules
             var resultList = await r.ExecuteAllRulesAsync("Discount", input1);
 
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            Console.WriteLine($"start {sw.ElapsedMilliseconds} ");
             // Display results
             foreach (var result in resultList)
             {
                 Console.WriteLine($"Rule: {result.Rule.RuleName}, Success: {result.IsSuccess}");
+                Console.WriteLine($"now {sw.ElapsedMilliseconds} ");
+
             }
+
+            Console.WriteLine($"end  {sw.ElapsedMilliseconds} ");
+
 
         }
     }

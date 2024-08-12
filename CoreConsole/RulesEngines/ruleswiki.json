@@ -13,6 +13,174 @@
         "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
         "SuccessEvent": "Success",
         "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop2",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop3",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop4",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop5",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop6",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop7",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop8",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop9",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop10",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop11",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop12",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop13",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop14",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop15",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop16",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop17",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop18",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop19",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop20",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop21",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop22",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop23",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop24",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop25",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop26",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop27",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop28",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
+      },
+      {
+        "RuleName": "Drop29",
+        "Expression": "Utils.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "ErrorMessage": "No records exist"
       }
     ]
   }
