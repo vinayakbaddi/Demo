@@ -26,12 +26,12 @@
       },
       {
         "RuleName": "Drop17",
-        "Expression": "Utils.TestMethod(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "Expression": "Testing.Drop(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
         "SuccessEvent": "Success",
         "OnSuccess": {
-          "Name": "TestDrop"
+          "Name": "ApplyDrop"
         },
-        "ErrorMessage": "Not eligible for discount"
+        "ErrorMessage": "Checking error"
       }
     ]
   }

@@ -48,8 +48,11 @@ namespace CoreConsole.RulesEngines
             new RuleParameter("customer", customer)
         };
 
+            var reSettingsWithCustomTypes = new ReSettings { CustomTypes = new Type[] { typeof(Testing) } };
+//            var r = new RulesEngine.RulesEngine(workflowRules, reSettingsWithCustomTypes);
+
             // Initialize the Rules Engine with the workflow rules
-            var rulesEngine = new RulesEngine.RulesEngine(workflowRules.ToArray(), null);
+            var rulesEngine = new RulesEngine.RulesEngine(workflowRules.ToArray(), reSettingsWithCustomTypes);
 
             // Execute the rule
             var resultList = await rulesEngine.ExecuteAllRulesAsync("OrderWorkflow", ruleParams.ToArray());
@@ -61,10 +64,12 @@ namespace CoreConsole.RulesEngines
                 {
                     //Console.WriteLine(result.SuccessEvent);
 
-                    //if (result.SuccessEvent == "ApplyDiscount")
-                    //{
+                    if (result.Rule.SuccessEvent == "ApplyDiscount")
+                    {
                         await ApplyDiscount(purchase, customer);
-                    //}
+                    }
+                    else
+                        await ApplyDrop(purchase,customer); 
                 }
                 else
                 {
@@ -79,6 +84,8 @@ namespace CoreConsole.RulesEngines
             return new Dictionary<string, Func<object[], Task>>
         {
             { "ApplyDiscount", async (inputs) => await ApplyDiscount(inputs[0] as Purchase, inputs[1] as Customer) }
+            ,{ "ApplyDrop", async (inputs) => await ApplyDrop(inputs[0] as Purchase, inputs[1] as Customer) }
+
         };
         }
 
@@ -88,6 +95,43 @@ namespace CoreConsole.RulesEngines
             // Logic to apply discount
             Console.WriteLine($"Applying discount to customer: {customer.CustomerType} for purchase amount: {purchase.PurchaseAmount}");
             await Task.CompletedTask;
+        }
+
+        public static async Task ApplyDrop(Purchase purchase, Customer customer)
+        {
+            // Logic to apply discount
+            Console.WriteLine($"Applying drop to customer: {customer.CustomerType} for purchase amount: {purchase.PurchaseAmount}");
+            await Task.CompletedTask;
+        }
+    }
+
+
+    public static class Testing
+    {
+        public static bool CheckContains(string check, string valList)
+        {
+            if (String.IsNullOrEmpty(check) || String.IsNullOrEmpty(valList))
+                return false;
+
+            var list = valList.Split(',').ToList();
+            return list.Contains(check);
+        }
+
+        public static bool Drop(string cellMajor, string dropList, string action)
+        {
+            if (String.IsNullOrEmpty(cellMajor) || String.IsNullOrEmpty(dropList))
+                return false;
+
+            var list = dropList.Split(',').ToList();
+            if (cellMajor.Equals("cellMajor") && list.Count > 0)
+            {
+                foreach (var item in list)
+                    Console.WriteLine($"Action {item} {action}");
+
+                return true;
+            }
+
+            return false;
         }
     }
 }
