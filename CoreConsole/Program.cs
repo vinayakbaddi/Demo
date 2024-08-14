@@ -7,5 +7,6 @@ Console.WriteLine("Hello, World!");
 //TestRules.run();
 //RunExample.ex();
 //RunProgram.Run();
-RulesWiki.run();
+
+CallingMethods.run();
 Console.Read();

@@ -1,0 +1,38 @@
+[
+  {
+    "WorkflowName": "OrderWorkflow",
+    "Rules": [
+      {
+        "RuleName": "DiscountEligibilityRule",
+        //"Expression": "Purchase.PurchaseAmount > 100",
+        "Expression": "Purchase.Test = \"100\"",
+        //"Expression": "customer.CustomerType = \"Premium\"",
+        "SuccessEvent": "ApplyDiscount",
+        "OnSuccess": {
+          "Name": "ApplyDiscount"
+        },
+        "ErrorMessage": "Not eligible for discount"
+      },
+      {
+        "RuleName": "DiscountEligibilityRule2",
+        "Expression": "p.PurchaseAmount < 100",
+        //"Expression": "Purchase.Test = \"100\"",
+        //"Expression": "customer.CustomerType = \"Premium\"",
+        "SuccessEvent": "ApplyDiscount",
+        "OnSuccess": {
+          "Name": "ApplyDiscount"
+        },
+        "ErrorMessage": "Not eligible for discount"
+      },
+      {
+        "RuleName": "Drop17",
+        "Expression": "Utils.TestMethod(\"cellMajor\", \"cell1,cell2\",\"drop\") ==true",
+        "SuccessEvent": "Success",
+        "OnSuccess": {
+          "Name": "TestDrop"
+        },
+        "ErrorMessage": "Not eligible for discount"
+      }
+    ]
+  }
+]

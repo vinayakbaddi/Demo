@@ -12,6 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="RulesEngines\CallingMethods.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="RulesEngines\ruleswiki.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
