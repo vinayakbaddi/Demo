@@ -32,7 +32,67 @@
           "Name": "ApplyDrop"
         },
         "ErrorMessage": "Checking error"
+      },
+
+      {
+        "RuleName": "DiscountEligibilityRule3",
+        "Expression": "p.PurchaseAmount > 100",
+        "SuccessEvent": "ApplyDiscountP",
+        "LocalParams": [
+          {
+            "Name": "testAmount",
+            "Expression": "p.PurchaseAmount"
+          },
+          {
+            "Name": "ownVariable",
+            "Expression": "true"
+          }
+          //{
+          //  "Name": "customerType",
+          //  "Expression": "customer.CustomerType"
+          //}
+        ],
+        "Properties": {
+          "discountRate": 0.10
+        },
+        "OnSuccess": {
+          "Name": "ApplyDiscountP",
+          "Parameters": [
+            {
+              "Name": "purchaseAmount",
+              "Value": "purchaseAmount"
+            }
+            //{
+            //  "Name": "customerType",
+            //  "Value": "customerType"
+            //},
+            ,{
+              "Name": "discountR",
+              "Value": "Properties.discountRate"
+            }
+          ]
+        },
+        "ErrorMessage": "Not eligible for discount"
       }
+      //{
+      //  "RuleName": "ApplyDiscountP",
+      //  "Expression": "p.PurchaseAmount > 100",
+      //  "SuccessEvent": "ApplyDiscountP",
+      //  "OnSuccess": {
+      //    "Name": "ApplyDiscountP",
+      //    "Params": [
+      //      {
+      //        "Name": "purchaseAmount",
+      //        "Value": "999"
+      //      },
+      //      {
+      //        "Name": "customerType",
+      //        "Value": "c.CustomerType"
+      //      }
+      //    ]
+      //  },
+      //  "ErrorMessage": "Not eligible for discount"
+      //}
     ]
   }
 ]

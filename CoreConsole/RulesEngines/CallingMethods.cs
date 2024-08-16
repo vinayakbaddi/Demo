@@ -68,8 +68,12 @@ namespace CoreConsole.RulesEngines
                     {
                         await ApplyDiscount(purchase, customer);
                     }
+                    else if (result.Rule.SuccessEvent == "ApplyDiscountP")
+                    {
+                        await ApplyDiscountP(purchase, customer);
+                    }
                     else
-                        await ApplyDrop(purchase,customer); 
+                        await ApplyDrop(purchase, customer); 
                 }
                 else
                 {
@@ -94,6 +98,14 @@ namespace CoreConsole.RulesEngines
         {
             // Logic to apply discount
             Console.WriteLine($"Applying discount to customer: {customer.CustomerType} for purchase amount: {purchase.PurchaseAmount}");
+            await Task.CompletedTask;
+        }
+
+        public static async Task ApplyDiscountP(Purchase purchase, Customer customer)
+        {
+            // Logic to apply discount
+            Console.WriteLine($"Applying discount to customer: {customer.CustomerType} for purchase amount: {purchase.PurchaseAmount}");
+            //return true;
             await Task.CompletedTask;
         }
 
