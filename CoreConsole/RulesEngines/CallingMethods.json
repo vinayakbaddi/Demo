@@ -57,6 +57,9 @@
         },
         "OnSuccess": {
           "Name": "ApplyDiscountP",
+          "Context": {
+            "Expression": "1==1"
+          },
           "Parameters": [
             {
               "Name": "purchaseAmount",
@@ -66,7 +69,8 @@
             //  "Name": "customerType",
             //  "Value": "customerType"
             //},
-            ,{
+            ,
+            {
               "Name": "discountR",
               "Value": "Properties.discountRate"
             }
