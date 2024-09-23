@@ -26,6 +26,23 @@
   </xsl:template>
 </xsl:stylesheet>
 
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+
+  <!-- Match the root element <al> -->
+  <xsl:template match="/al">
+    <!-- Iterate over all child elements -->
+    <xsl:for-each select="*[starts-with(name(), 'l')]">
+      <xsl:value-of select="."/>
+      <!-- Add a space between values -->
+      <xsl:if test="position() != last()">
+        <xsl:text> </xsl:text>
+      </xsl:if>
+    </xsl:for-each>
+  </xsl:template>
+
+</xsl:stylesheet>
+
 <!--Explanation:
 The match="/al" template matches the root <al>
   element.
