@@ -62,3 +62,34 @@ The match="/al" template matches the root <al>
         </xsl:copy>
     </xsl:template>
 </xsl:stylesheet>-->
+
+<gp>
+    <p>
+        <c>
+            <gc>grandchild</gc>
+        </c>
+    </p>
+</gp>
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+    <xsl:output method="xml" indent="yes"/>
+
+    <!-- Root template that matches the 'gp' element -->
+    <xsl:template match="gp">
+        <answerset>
+            <!-- Apply templates to any 'gc' element -->
+            <xsl:apply-templates select=".//gc"/>
+        </answerset>
+    </xsl:template>
+
+    <!-- Template that matches the 'gc' element -->
+    <xsl:template match="gc">
+        <answer name="{name()}"> <!-- Add the 'name' attribute with the element name 'gc' -->
+            <tv>
+                <!-- Output the value of the 'gc' element -->
+                <xsl:value-of select="."/>
+            </tv>
+        </answer>
+    </xsl:template>
+
+</xsl:stylesheet>
