@@ -93,3 +93,72 @@ The match="/al" template matches the root <al>
     </xsl:template>
 
 </xsl:stylesheet>
+
+
+
+
+-----------------
+
+Help with XSLT for following XML
+<gp>
+<p>
+<c>
+<gc>
+<name>fsrst</name>
+<ad>1adr</ad>
+</gc>
+<gc>
+<name>sec</name>
+<ad>2ad</ad>
+</gc>
+
+</c>
+</p>
+</gp>
+
+which should return xml as below
+<answerset>
+<Tbl name="gc_1">
+<r>
+<col>fsrst</col>
+<col>1adr</col>
+</r>
+</Tbl>
+<Tbl name="gc_2">
+<r>
+<col>sec</col>
+<col>2ad</col>
+</r>
+</Tbl>
+
+</answer>
+</answerset>
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+    <xsl:output method="xml" indent="yes"/>
+    
+    <!-- Root template matching the 'gp' element -->
+    <xsl:template match="gp">
+        <answerset>
+            <!-- Apply templates to all 'gc' elements and pass the position for dynamic name generation -->
+            <xsl:apply-templates select=".//gc" />
+        </answerset>
+    </xsl:template>
+
+    <!-- Template that matches each 'gc' element -->
+    <xsl:template match="gc">
+        <!-- Generate a Tbl element with a dynamic name using the position of the 'gc' element -->
+        <Tbl name="gc_{position()}">
+            <r>
+                <!-- First column contains the value of the 'name' element -->
+                <col>
+                    <xsl:value-of select="name"/>
+                </col>
+                <!-- Second column contains the value of the 'ad' element -->
+                <col>
+                    <xsl:value-of select="ad"/>
+                </col>
+            </r>
+        </Tbl>
+    </xsl:template>
+</xsl:stylesheet>
