@@ -162,3 +162,45 @@ which should return xml as below
         </Tbl>
     </xsl:template>
 </xsl:stylesheet>
+
+
+---------------------- get path as attribute
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+
+  <!-- Match the root and begin constructing the <answerset> -->
+  <xsl:template match="/">
+    <answerset>
+      <!-- Apply template for the specific path 'al/l3/value' -->
+      <xsl:apply-templates select="/al/l3/value"/>
+    </answerset>
+  </xsl:template>
+
+  <!-- Template to match the <value> under the <l3> element -->
+  <xsl:template match="al/l3/value">
+    <answer name="{name(..)}" path="{generate-path(.)}">
+      <!-- Output the value of <value> element wrapped in <Tv> -->
+      <Tv>
+        <xsl:value-of select="."/>
+      </Tv>
+    </answer>
+  </xsl:template>
+
+  <!-- Recursive template to generate the path -->
+  <xsl:template name="generate-path">
+    <xsl:param name="current-node" select="."/>
+    <xsl:choose>
+      <xsl:when test="not(parent::*)">
+        <xsl:value-of select="name($current-node)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="concat(name($current-node), '\', '')"/>
+        <xsl:call-template name="generate-path">
+          <xsl:with-param name="current-node" select="parent::*"/>
+        </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+</xsl:stylesheet>
